@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff6f91,#ff9a9e);
+    overflow-y:auto;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    color:white;
+}
+
+.contenido{
+    padding:20px;
+}
+
+h1{
+    font-size:45px;
+    text-shadow:4px 4px 8px #555;
+}
+
+p{
+    font-size:25px;
+}
+
+.corazon{
+    font-size:90px;
+    animation:latir 1s infinite;
+}
+
+@keyframes latir{
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+button{
+    width:70%;
+    padding:20px;
+    margin:20px;
+    font-size:35px;
+    border:none;
+    border-radius:35px;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.si{
+    background:#00c853;
+    box-shadow:0 0 25px #00ff66;
+}
+
+.no{
+    background:#e53935;
+    box-shadow:0 0 25px #ff4444;
+}
+
+#respuesta{
+    margin-top:40px;
+    font-size:35px;
+    font-weight:bold;
+    text-shadow:3px 3px 6px black;
+}
+
+.corazonFlotante{
+    position:fixed;
+    bottom:-50px;
+    font-size:35px;
+    animation:subir 5s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenido">
+
+<h1>❤️ Para ti ❤️</h1>
+
+<div class="corazon">💖</div>
+
+<p>
+Eres una persona muy especial para mí ❤️<br>
+Tengo una pregunta para ti...
+</p>
+
+<h1>¿Quieres ser mi novia?</h1>
+
+<button id="si" class="si" onclick="aceptar()">
+SI ❤️
+</button>
+
+<button id="no" class="no" onclick="rechazar()">
+NO 💔
+</button>
+
+<div id="respuesta"></div>
+
+</div>
+
+<script>
+
+function aceptar(){
+
+    // Cambiar colores de botones
+    document.getElementById("si").style.background = "black";
+    document.getElementById("si").style.boxShadow = "0 0 25px white";
+
+    document.getElementById("no").style.background = "#e53935";
+    document.getElementById("no").style.boxShadow = "0 0 25px #ff4444";
+
+    // Mensaje
+    document.getElementById("respuesta").innerHTML =
+    "❤️ Me haces la persona más feliz del mundo ❤️";
+}
+
+function rechazar(){
+
+    // Cambiar colores de botones
+    document.getElementById("no").style.background = "black";
+    document.getElementById("no").style.boxShadow = "0 0 25px white";
+
+    document.getElementById("si").style.background = "#00c853";
+    document.getElementById("si").style.boxShadow = "0 0 25px #00ff66";
+
+    // Mensaje
+    document.getElementById("respuesta").innerHTML =
+    "🥺 Gracias por responder, siempre te deseo lo mejor ❤️";
+}
+
+// Corazones flotando
+setInterval(function(){
+
+    let c = document.createElement("div");
+    c.className = "corazonFlotante";
+    c.innerHTML = "❤️";
+    c.style.left = Math.random()*100 + "%";
+
+    document.body.appendChild(c);
+
+    setTimeout(function(){
+        c.remove();
+    },5000);
+
+},600);
+
+</script>
+
+</body>
+</html
